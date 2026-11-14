@@ -3,109 +3,261 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NEXUS GAMING</title>
+    <meta name="theme-color" content="#080D19">
+    <meta name="description" content="AETHRIX STUDIOS — Beyond the Game. An independent digital experience studio.">
+
+    <title>AETHRIX STUDIOS | Beyond The Game</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- NAVIGATION -->
     <nav class="navbar">
-        <div class="logo">NEXUS<span>.</span></div>
+        <a href="#home" class="logo">
+            AETHRIX<span>.</span>
+            <small>STUDIOS</small>
+        </a>
 
-        <div class="nav-links">
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Open navigation" aria-expanded="false">
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
             <a href="#home">Home</a>
-            <a href="#games">Games</a>
-            <a href="#news">News</a>
+            <a href="#about">About</a>
+            <a href="#vision">Our Vision</a>
+            <a href="#contact">Contact</a>
         </div>
 
-        <button class="login-btn">Join Us</button>
+        <a href="#contact" class="nav-button">CONNECT ↗</a>
     </nav>
 
-    <section class="hero" id="home">
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+
+        <div class="hero-glow"></div>
 
         <div class="hero-content">
-            <p class="tag">WELCOME TO THE NEXT LEVEL</p>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                INDEPENDENT DIGITAL STUDIO
+            </div>
+
+            <p class="eyebrow">WELCOME TO A NEW DIMENSION</p>
 
             <h1>
-                PLAY MORE.<br>
-                <span>LIVE MORE.</span>
+                BEYOND<br>
+                <span>THE GAME.</span>
             </h1>
 
-            <p class="description">
-                Discover games, explore new worlds
-                and become part of the gaming community.
+            <p class="hero-description">
+                We imagine, create and explore digital
+                experiences that push beyond the ordinary.
+                The journey starts here.
             </p>
 
-            <button class="main-btn"
-                    onclick="exploreGames()">
-                EXPLORE GAMES →
-            </button>
+            <div class="hero-actions">
+                <a href="#about" class="primary-btn">
+                    DISCOVER OUR STUDIO →
+                </a>
+
+                <a href="#vision" class="secondary-btn">
+                    OUR VISION
+                </a>
+            </div>
+
+            <div class="hero-bottom">
+                <span>CREATIVITY</span>
+                <span>INNOVATION</span>
+                <span>IMAGINATION</span>
+            </div>
+
         </div>
 
-    </section>
+        <div class="hero-decoration">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="core">A</div>
+        </div>
 
-    <section class="games-section" id="games">
+        <div class="scroll-indicator">
+            SCROLL TO EXPLORE ↓
+        </div>
 
-        <div class="section-heading">
+    </header>
+
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+
+        <div class="section-label">01 / WHO WE ARE</div>
+
+        <div class="about-grid">
+
             <div>
-                <p class="tag">YOUR NEXT ADVENTURE</p>
-                <h2>POPULAR GAMES</h2>
-            </div>
-        </div>
+                <p class="eyebrow">THE STUDIO</p>
 
-        <div class="game-grid">
-
-            <div class="game-card">
-                <div class="game-image game-one"></div>
-                <div class="game-info">
-                    <h3>Cyber World</h3>
-                    <p>Action / Adventure</p>
-                    <button onclick="playGame('Cyber World')">
-                        PLAY NOW
-                    </button>
-                </div>
+                <h2>
+                    CREATING<br>
+                    <span>WHAT'S NEXT.</span>
+                </h2>
             </div>
 
-            <div class="game-card">
-                <div class="game-image game-two"></div>
-                <div class="game-info">
-                    <h3>Shadow Quest</h3>
-                    <p>Fantasy / RPG</p>
-                    <button onclick="playGame('Shadow Quest')">
-                        PLAY NOW
-                    </button>
-                </div>
-            </div>
+            <div class="about-text">
+                <p>
+                    AETHRIX STUDIOS is an independent
+                    creative technology studio focused on
+                    exploring the world of digital experiences.
+                </p>
 
-            <div class="game-card">
-                <div class="game-image game-three"></div>
-                <div class="game-info">
-                    <h3>Speed Legends</h3>
-                    <p>Racing / Sports</p>
-                    <button onclick="playGame('Speed Legends')">
-                        PLAY NOW
-                    </button>
-                </div>
+                <p>
+                    We believe every great creation begins
+                    with an idea. Our goal is to transform
+                    those ideas into something people
+                    can experience and remember.
+                </p>
+
+                <p>
+                    This is only the beginning of our journey.
+                </p>
             </div>
 
         </div>
+
     </section>
 
-    <section class="news-section" id="news">
-        <p class="tag">STAY UPDATED</p>
-        <h2>GAMING NEVER STOPS.</h2>
-        <p>New adventures are waiting for you.</p>
+
+    <!-- VISION -->
+    <section class="section vision" id="vision">
+
+        <div class="section-label">02 / OUR VISION</div>
+
+        <div class="vision-heading">
+            <p class="eyebrow">WHAT DRIVES US</p>
+            <h2>THINK BIGGER.<br>
+                <span>CREATE DIFFERENT.</span>
+            </h2>
+        </div>
+
+        <div class="vision-grid">
+
+            <article class="vision-card">
+                <div class="card-icon">01</div>
+                <h3>IMAGINATION</h3>
+                <p>
+                    Every extraordinary experience
+                    begins with an extraordinary idea.
+                </p>
+            </article>
+
+            <article class="vision-card">
+                <div class="card-icon">02</div>
+                <h3>TECHNOLOGY</h3>
+                <p>
+                    Exploring creative possibilities
+                    through modern technology.
+                </p>
+            </article>
+
+            <article class="vision-card">
+                <div class="card-icon">03</div>
+                <h3>EXPERIENCE</h3>
+                <p>
+                    Building meaningful digital
+                    experiences for the future.
+                </p>
+            </article>
+
+        </div>
+
     </section>
 
+
+    <!-- UPCOMING -->
+    <section class="upcoming">
+
+        <div class="upcoming-content">
+
+            <p class="eyebrow">THE NEXT CHAPTER</p>
+
+            <h2>SOMETHING<br>
+                <span>IS BREWING.</span>
+            </h2>
+
+            <p>
+                New ideas. New experiments.
+                New experiences.
+
+                Our upcoming creations will be revealed
+                when they are ready.
+            </p>
+
+            <div class="coming-soon">
+                <span class="status-dot"></span>
+                PROJECT REVEALS COMING SOON
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+
+        <div class="section-label">03 / GET IN TOUCH</div>
+
+        <p class="eyebrow">LET'S CONNECT</p>
+
+        <h2>HAVE AN IDEA?<br>
+            <span>LET'S TALK.</span>
+        </h2>
+
+        <p class="contact-description">
+            Interested in our work or want to connect
+            with AETHRIX STUDIOS?
+        </p>
+
+        <a href="mailto:YOUR_EMAIL_HERE"
+           class="primary-btn">
+            CONTACT THE STUDIO ↗
+        </a>
+
+        <p class="email-note">
+            Replace YOUR_EMAIL_HERE with your studio email
+            before publishing.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
     <footer>
-        NEXUS GAMING © 2026
-        <p>Built for gamers, by gamers.</p>
+
+        <a href="#home" class="footer-logo">
+            AETHRIX<span>.</span>
+        </a>
+
+        <p>BEYOND THE GAME.</p>
+
+        <div class="footer-line"></div>
+
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> AETHRIX STUDIOS</span>
+            <span>CRAFTED WITH IMAGINATION.</span>
+        </div>
+
     </footer>
 
+
     <script src="script.js"></script>
+
 </body>
 </html>
