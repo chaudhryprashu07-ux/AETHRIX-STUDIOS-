@@ -1,2 +1,2 @@
 # AETHRIX-Studios-
-Official NEXUS GAMING websit
+Official AETHRIX official websit
