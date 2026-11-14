@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NEXUS GAMING</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">NEXUS<span>.</span></div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#games">Games</a>
+            <a href="#news">News</a>
+        </div>
+
+        <button class="login-btn">Join Us</button>
+    </nav>
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <p class="tag">WELCOME TO THE NEXT LEVEL</p>
+
+            <h1>
+                PLAY MORE.<br>
+                <span>LIVE MORE.</span>
+            </h1>
+
+            <p class="description">
+                Discover games, explore new worlds
+                and become part of the gaming community.
+            </p>
+
+            <button class="main-btn"
+                    onclick="exploreGames()">
+                EXPLORE GAMES →
+            </button>
+        </div>
+
+    </section>
+
+    <section class="games-section" id="games">
+
+        <div class="section-heading">
+            <div>
+                <p class="tag">YOUR NEXT ADVENTURE</p>
+                <h2>POPULAR GAMES</h2>
+            </div>
+        </div>
+
+        <div class="game-grid">
+
+            <div class="game-card">
+                <div class="game-image game-one"></div>
+                <div class="game-info">
+                    <h3>Cyber World</h3>
+                    <p>Action / Adventure</p>
+                    <button onclick="playGame('Cyber World')">
+                        PLAY NOW
+                    </button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-image game-two"></div>
+                <div class="game-info">
+                    <h3>Shadow Quest</h3>
+                    <p>Fantasy / RPG</p>
+                    <button onclick="playGame('Shadow Quest')">
+                        PLAY NOW
+                    </button>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-image game-three"></div>
+                <div class="game-info">
+                    <h3>Speed Legends</h3>
+                    <p>Racing / Sports</p>
+                    <button onclick="playGame('Speed Legends')">
+                        PLAY NOW
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="news-section" id="news">
+        <p class="tag">STAY UPDATED</p>
+        <h2>GAMING NEVER STOPS.</h2>
+        <p>New adventures are waiting for you.</p>
+    </section>
+
+    <footer>
+        NEXUS GAMING © 2026
+        <p>Built for gamers, by gamers.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

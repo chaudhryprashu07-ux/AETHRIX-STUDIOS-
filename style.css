@@ -1,0 +1,219 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080910;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    background: #0d0e18;
+    border-bottom: 1px solid #252637;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #a855f7;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #c3c3d1;
+    font-size: 14px;
+}
+
+.login-btn, .main-btn {
+    background: #a855f7;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.hero {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    padding: 65px 8%;
+    background:
+      radial-gradient(circle at 80% 40%,
+      #34205c 0%, transparent 40%),
+      linear-gradient(120deg, #111225, #080910);
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.tag {
+    color: #b875ff;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 9vw, 75px);
+    line-height: 1.05;
+    font-weight: 900;
+}
+
+.hero h1 span {
+    color: #a855f7;
+}
+
+.description {
+    color: #a4a4b5;
+    line-height: 1.8;
+    margin: 22px 0;
+}
+
+.main-btn {
+    padding: 16px 25px;
+    cursor: pointer;
+}
+
+.games-section {
+    padding: 65px 7%;
+}
+
+.section-heading h2,
+.news-section h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.game-card {
+    background: #131421;
+    border: 1px solid #292a3d;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+    border-color: #a855f7;
+}
+
+.game-image {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+
+.game-one {
+    background-image:
+      linear-gradient(135deg, #261a4c, #a855f7);
+}
+
+.game-two {
+    background-image:
+      linear-gradient(135deg, #102f40, #1d9a9a);
+}
+
+.game-three {
+    background-image:
+      linear-gradient(135deg, #451b28, #e65b43);
+}
+
+.game-info {
+    padding: 20px;
+}
+
+.game-info p {
+    color: #9999aa;
+    font-size: 13px;
+    margin: 10px 0 18px;
+}
+
+.game-info button {
+    background: transparent;
+    color: #bd83ff;
+    border: 1px solid #a855f7;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.news-section {
+    text-align: center;
+    padding: 70px 15px;
+    background: #10111e;
+}
+
+.news-section p:last-child {
+    color: #9999aa;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background: #080910;
+    color: #aaa;
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+@media(max-width: 650px) {
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .login-btn {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+
+    .game-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 420px;
+        padding: 45px 7%;
+    }
+}
