@@ -258,28 +258,247 @@
 
 
     <script src="script.js"></script>
-<div id="ai-chat">
-    <button id="ai-toggle">✦ AETHRIX AI</button>
 
-    <div id="ai-window" class="hidden">
-        <div class="ai-header">
-            <span>✦ AETHRIX AI</span>
-            <button id="ai-close">×</button>
-        </div>
+<!-- AETHRIX AI CHATBOT -->
 
-        <div id="ai-messages">
-            <div class="bot-message">
-                Hello! I'm AETHRIX AI.
-                How can I help you today?
-            </div>
-        </div>
+<style>
+#aethrix-launcher {
+  position: fixed;
+  bottom: 22px;
+  right: 20px;
+  width: 62px;
+  height: 62px;
+  border: none;
+  border-radius: 50%;
+  background: #7554ff;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+  z-index: 99999;
+  box-shadow: 0 4px 20px #7554ff66;
+}
 
-        <div class="ai-input">
-            <input id="ai-input"
-                placeholder="Ask me anything...">
-            <button id="ai-send">➤</button>
-        </div>
+#aethrix-chat {
+  display: none;
+  position: fixed;
+  bottom: 95px;
+  right: 15px;
+  width: min(350px, calc(100vw - 30px));
+  height: 470px;
+  max-height: 70vh;
+  background: #15151d;
+  border: 1px solid #7554ff;
+  border-radius: 17px;
+  z-index: 99999;
+  overflow: hidden;
+  color: white;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 8px 30px #0008;
+}
+
+#aethrix-header {
+  background: #7554ff;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#aethrix-header button {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+#aethrix-messages {
+  height: calc(100% - 130px);
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.aethrix-message {
+  padding: 11px;
+  margin: 9px 0;
+  border-radius: 12px;
+  max-width: 85%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+  font-size: 14px;
+}
+
+.aethrix-user {
+  background: #7554ff;
+  margin-left: auto;
+}
+
+.aethrix-bot {
+  background: #292936;
+  margin-right: auto;
+}
+
+#aethrix-input-area {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  padding: 9px;
+  box-sizing: border-box;
+  gap: 7px;
+  background: #20202b;
+}
+
+#aethrix-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #555;
+  border-radius: 10px;
+  background: #30303b;
+  color: white;
+  outline: none;
+}
+
+#aethrix-send {
+  background: #7554ff;
+  color: white;
+  border: none;
+  padding: 0 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#aethrix-send:disabled {
+  opacity: .5;
+}
+</style>
+
+<button id="aethrix-launcher" aria-label="Open AETHRIX AI">
+  ✦
+</button>
+
+<div id="aethrix-chat">
+  <div id="aethrix-header">
+    <div>
+      <strong>✦ AETHRIX AI</strong>
+      <div style="font-size:11px;margin-top:4px">
+        Powered by AETHRIX STUDIOS
+      </div>
     </div>
+    <button id="aethrix-close" aria-label="Close">×</button>
+  </div>
+
+  <div id="aethrix-messages">
+    <div class="aethrix-message aethrix-bot">
+      Hello! I'm AETHRIX AI ✦
+      How can I help you today?
+    </div>
+  </div>
+
+  <form id="aethrix-input-area">
+    <input
+      id="aethrix-input"
+      placeholder="Ask AETHRIX anything..."
+      maxlength="1000"
+      autocomplete="off"
+      required
+    >
+    <button id="aethrix-send" type="submit">Send</button>
+  </form>
 </div>
+
+<script>
+const AETHRIX_API =
+  "https://aethrix-ai.chaudhryprashu07.workers.dev";
+
+const launcher = document.getElementById("aethrix-launcher");
+const chat = document.getElementById("aethrix-chat");
+const closeBtn = document.getElementById("aethrix-close");
+const messagesBox = document.getElementById("aethrix-messages");
+const input = document.getElementById("aethrix-input");
+const form = document.getElementById("aethrix-input-area");
+const sendBtn = document.getElementById("aethrix-send");
+
+let history = [];
+let busy = false;
+
+launcher.addEventListener("click", () => {
+  chat.style.display =
+    chat.style.display === "block" ? "none" : "block";
+});
+
+closeBtn.addEventListener("click", () => {
+  chat.style.display = "none";
+});
+
+function addMessage(text, type) {
+  const div = document.createElement("div");
+  div.className = "aethrix-message aethrix-" + type;
+  div.textContent = text;
+  messagesBox.appendChild(div);
+  messagesBox.scrollTop = messagesBox.scrollHeight;
+  return div;
+}
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const message = input.value.trim();
+
+  if (!message || busy) return;
+
+  busy = true;
+  sendBtn.disabled = true;
+  input.value = "";
+
+  addMessage(message, "user");
+
+  const loading = addMessage("AETHRIX is thinking...", "bot");
+
+  try {
+    const response = await fetch(AETHRIX_API + "/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: message,
+        history: history
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.reply) {
+      throw new Error(data.error || "AI response failed.");
+    }
+
+    loading.textContent = data.reply;
+
+    history.push(
+      { role: "user", content: message },
+      { role: "assistant", content: data.reply }
+    );
+
+    history = history.slice(-8);
+
+  } catch (error) {
+    loading.textContent =
+      "Connection error. Please try again later.";
+    console.error("AETHRIX AI:", error);
+
+  } finally {
+    busy = false;
+    sendBtn.disabled = false;
+    input.focus();
+    messagesBox.scrollTop = messagesBox.scrollHeight;
+  }
+});
+</script>
+
+<!-- END AETHRIX AI -->
+
 </body>
 </html>
